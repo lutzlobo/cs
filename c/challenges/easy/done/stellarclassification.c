@@ -19,16 +19,15 @@ int main() {
     for(int i = 0; i < SIZE - 1; i++) {
         for(int j = 0; j < SIZE - i - 1; j++) {
             
-            // Get index of stars[j] in MK_system
-            int index_j = 0;
+            int index_j = 0; //first number to compare
             for(int k = 0; k < SIZE; k++) {
                 if(MK_system[k] == stars[j]) {
                     index_j = k;
                     break;
                 }
             }
-            // Get index of stars[j+1] in MK_system
-            int index_j1 = 0;
+            
+            int index_j1 = 0; //second number to compare
             for(int k = 0; k < SIZE; k++) {
                 if(MK_system[k] == stars[j+1]) {
                     index_j1 = k;
@@ -36,8 +35,7 @@ int main() {
                 }
             }
             
-            // If stars[j] is 'cooler' than stars[j+1], swap them
-            if(index_j > index_j1) {
+            if(index_j > index_j1) { //swap
                 char temp = stars[j];
                 stars[j] = stars[j+1];
                 stars[j+1] = temp;

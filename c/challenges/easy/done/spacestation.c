@@ -12,8 +12,22 @@ Your task is to write a program that checks if a certain number is present in an
 int main() {
     int food[SIZE] = {1, 5, 3, 7, 9, 2, 6};
     int favorite = 7; // Your favorite food item
-    
-    // Your code here...
+    int i = 0;
+    int found = 0; // flag
+
+    for (i = 0; i < SIZE; i++) {
+        if(food[i] == favorite) {
+            found = 1;
+            break;
+        }
+    } 
+
+    if (found == 1) {
+        printf("Favorite food found in the package!\n");
+    }
+    else {
+        printf("No favorite food found in the package.\n");
+    }
     
     return 0;
 }
