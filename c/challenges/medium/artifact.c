@@ -20,14 +20,16 @@ int main() {
     int numbers[SIZE] = {2, 5, 1, 8, 2, 9, 9, 3, 2, 6};
     int unique_numbers[SIZE] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ;
     int count[SIZE] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ;
-    int unique_count = 0; // How many unique numbers we've found
+    int unique_count = 0;
+
+    int max_count = 0;
+    int mode = -1;
 
     for (int i = 0; i < SIZE; i++) {
         
         int current_number = numbers[i];
         int found = 0; //
 
-        // Try to find current_number in unique_numbers
         for (int j = 0; j < unique_count; j++) {
             if(unique_numbers[j] == current_number) {
                 count[j]++;
@@ -35,14 +37,22 @@ int main() {
                 break;
             }
         }
-        // If current_number wasn't  found in unique_numbers,
-        // we add it there and set its count to 1.
+
         if(found == 0) {
             unique_numbers[unique_count] = current_number;
             count[unique_count] = 1;
             unique_count++;
         }
     }
+
+    for (int i = 0; i < unique_count; i++) {
+        if (count[i] > max_count) {
+            max_count = count[i];
+            mode = unique_numbers[i];
+        }
+    }
+
+    printf("The number %d appears %d times, more than any other number.\n", mode, max_count);
 
     return 0;
 }
