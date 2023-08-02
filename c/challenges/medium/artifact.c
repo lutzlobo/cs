@@ -18,10 +18,31 @@ Can you crack the code, unlock the secret chamber and discover the treasure hidd
 int main() {
 
     int numbers[SIZE] = {2, 5, 1, 8, 2, 9, 9, 3, 2, 6};
-    int max_count = 0;
-    int mode = -1;
+    int unique_numbers[SIZE] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ;
+    int count[SIZE] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0} ;
+    int unique_count = 0; // How many unique numbers we've found
 
-    // Add your code here...
+    for (int i = 0; i < SIZE; i++) {
+        int current_number = numbers[i];
+        int found = 0; //
+
+        // Try to find current_number in unique_numbers
+        for (int j = 0; j < unique_count; j++) {
+            if(unique_numbers[j] == current_number) {
+                count[j]++;
+                found = 1;
+                break;
+            }
+        }
+
+        // If current_number wasn't  found in unique_numbers,
+        // we add it there and set its count to 1.
+        if(found == 0) {
+            unique_numbers[unique_count] = current_number;
+            count[unique_count] = 1;
+            unique_count++;
+        }
+    }
 
     return 0;
 }
