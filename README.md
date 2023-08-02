@@ -1,3 +1,3 @@
-# cs-books
+# cs
 
-Exercises, notes and other things CS books related.
+Exercises, notes and other things CS related.
