@@ -23,6 +23,7 @@ int main() {
     int unique_count = 0; // How many unique numbers we've found
 
     for (int i = 0; i < SIZE; i++) {
+        
         int current_number = numbers[i];
         int found = 0; //
 
@@ -34,7 +35,6 @@ int main() {
                 break;
             }
         }
-
         // If current_number wasn't  found in unique_numbers,
         // we add it there and set its count to 1.
         if(found == 0) {
